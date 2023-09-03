@@ -12,7 +12,9 @@ Despues de dar el comando docker ps, el resutado deberia parecerse a lo siguient
 CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
 1ab05c84e383 postgres "docker-entrypoint.s…" 6 days ago Up 3 hours 0.0.0.0:54321->5432/tcp mi-postgres
 
-Dar el siguiente comando para ingresar al servidor Postgres
+Nota: 1ab05c84e383 es el ID del contendedor donde esta corriendo el servidor Postgress. En su caso este ID sera diferente.
+
+Dar el siguiente comando para ingresar al servidor Postgres:
 docker exec -it mi-postgres psql -U postgres -W
 
 Una vez ingresado al servidor Postgres, dar el siguiente comando para crear la base de datos personas_db
@@ -46,33 +48,35 @@ INSERT INTO usuarios (cedula_identidad, nombre, primer_apellido, segundo_apellid
 
 # LEVANTAR NODE Y EXPRESS
 
-Instalar NodeJS v20.3.0
-Instalar npm 9.6.7
+Instalar NodeJS v20.3.0 en su computadora.
+Instalar npm 9.6.7 en su computadora.
 
-Bajar de Github el repositorio
-Entrar a la carpeta donde se encuentra el index.js
-dar el comando npm init y creara el package.json
+En su computadora crear una carpeta con el nombre api-rest-js (el nombre de la carpeta es solo un ejemplo, puede usar otro nombre).
+Bajar a la carpeta api-rest-js el archivo index.js desde el repositorio publico https://github.com/mwfernandezm/api-rest-js.git
 
-Dar el comando el siguiente comando para instalar el paquete Express que facilitar la publicacon de la aplicacion:
+Instalar Visual Studio Code (VSC) en su computadora y en la terminal del VSC ir a la carpeta api-rest-js y dar el siguiente comando que permitira inicializar el manejador de paquetes de Node.
+npm init
+
+Luego dar el comando el siguiente comando para instalar el paquete Express que facilitara la publicacion de la aplicacion:
 npm install express
 
-Dar el coamndo el siguiente comando para instalar el paquete pg que permitara conectarse a la base de datos Postgres desde la aplicacion:
+Dar el siguiente comando para instalar el paquete pg que permitara conectarse a la base de datos Postgres desde la aplicacion:
 npm install pg
 
-Instalar Visual Studio Code (VSC) y en la terminal de VSC dar el siguiente comando para levantar el servidor Express en el puerto 3001
+En la terminal del VSC dar el siguiente comando para levantar el servidor Express en el puerto 3001
 node index.js
 
-Despues dar el comando anterior, el resultado deberia ser el siguiente:
+Despues dar el comando node index.js, la terminal del VSC deberia mostrar ser el siguiente mensaje:
 Este servidor se ejecuta en http://localhost:3001
 
-# PRUEBA DE RUTAS
+# PRUEBA DE LA APLICACION
 
 Instalar Postman y luego probar las siguientes rutas de la aplicacion:
 
-    app.post("/usuarios", controller.addUsuario.bind(controller));
-    app.get("/usuarios", controller.getUsuarios.bind(controller));
-    app.get("/usuarios/promedio-edad", controller.promedio.bind(controller));
-    app.get("/usuarios/:id_usuario", controller.getUsuarioById.bind(controller));
-    app.put("/usuarios/:id_usuario", controller.updateUsuario.bind(controller));
-    app.delete("/usuarios/:id_usuario", controller.deleteUsuario.bind(controller));
-    app.get("/estado", controller.estado_api.bind(controller));
+    POST http://localhost:3001/usuarios para registrar un nuevo usuario a la tabla de usuarios
+    GET http://localhost:3001//usuarios para visualizar  todos los usuarios existentes en la tabla usuarios
+    GET http://localhost:3001/usuarios/promedio-edad para visualizar el promedio de edad de los usuarios
+    GET http://localhost:3001/usuarios/1 para visualizar solo el 1er registro de la tabla de usuarios
+    PUT http://localhost:3001/usuarios/1 para actualizar datos del 1er registro de la tabla de usuarios
+    DELETE http://localhost:3001/usuarios/1 para borrar el 1er registro de la tabla de usuarios
+    GET http://localhost:3001/estado para visualizar el estado de la API REST

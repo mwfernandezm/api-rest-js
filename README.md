@@ -14,7 +14,7 @@ Despues de dar el comando docker ps, el resutado deberia parecerse a lo siguient
 
 1ab05c84e383 postgres "docker-entrypoint.s…" 6 days ago Up 3 hours 0.0.0.0:54321->5432/tcp mi-postgres
 
-Nota: 1ab05c84e383 es el ID del contendedor donde esta corriendo el servidor Postgress. En su caso dihco ID tendra un numero diferente.
+DONDE 1ab05c84e383 es el ID del contenedor en el cual esta corriendo el servidor Postgress. En su caso dicho ID tendra un numero diferente.
 
 Dar el siguiente comando para ingresar al servidor Postgres
 
@@ -27,27 +27,41 @@ CREATE DATABASE personas_db
 Instalar DBeaver y crear la conexion a la base de datos personas_db con los siguientes datos
 
 Host: localhost
+
 Port: 54321
+
 Database: usuarios_db
+
 Username: postgres
+
 Password: postgres
 
 En DBveaver, en la base de datos personas_db dar boton derecho, ir al SQL Editor, luego dar Open SQL Script y dar los siguientes comandos para crear la tabla usuarios
 
 CREATE TABLE usuarios (
+
 id SERIAL PRIMARY KEY,
+
 cedula_identidad INTEGER NOT NULL,
+
 nombre VARCHAR(50) NOT NULL,
+
 primer_apellido VARCHAR(50) NOT NULL,
+
 segundo_apellido VARCHAR(50) NOT NULL,
+
 fecha_nacimiento DATE NOT NULL
+
 );
 
 En DBveaver, en la base de datos personas_db dar boton derecho, ir al SQL Editor, luego dar Open SQL Script y dar los siguientes comandos para insertar 3 registros a la tabla usuarios
 
 INSERT INTO usuarios (cedula_identidad, nombre, primer_apellido, segundo_apellido, fecha_nacimiento) VALUES
+
 (3853123, 'Mario', 'Lopez', 'Vaca', '1971/09/21'),
+
 (3853124, 'Juan', 'Perez', 'Losa', '1972/11/30'),
+
 (3853125, 'Pedro', 'Martinez', 'Arevalo', '1973/10/20');
 
 # LEVANTAR NODE Y EXPRESS
@@ -83,10 +97,16 @@ Este servidor se ejecuta en http://localhost:3001
 
 Instalar Postman y luego probar las siguientes rutas de la aplicacion
 
-    POST http://localhost:3001/usuarios para registrar un nuevo usuario a la tabla de usuarios
-    GET http://localhost:3001//usuarios para visualizar todos los usuarios existentes en la tabla usuarios
-    GET http://localhost:3001/usuarios/promedio-edad para visualizar el promedio de edad de los usuarios
-    GET http://localhost:3001/usuarios/1 para visualizar solo el 1er registro de la tabla de usuarios
-    PUT http://localhost:3001/usuarios/1 para actualizar datos del 1er registro de la tabla de usuarios
-    DELETE http://localhost:3001/usuarios/1 para borrar el 1er registro de la tabla de usuarios
-    GET http://localhost:3001/estado para visualizar el estado de la API REST
+Metodo POST en Postman apuntando a link http://localhost:3001/usuarios para registrar un nuevo usuario a la tabla de usuarios
+
+Metodo GET en Postman apuntando al link http://localhost:3001//usuarios para visualizar todos los usuarios existentes en la tabla usuarios
+
+Metodo GET en Postman apuntando al link http://localhost:3001/usuarios/promedio-edad para visualizar el promedio de edad de los usuarios
+
+Metodo GET en Postman apuntando al link http://localhost:3001/usuarios/1 para visualizar solo el 1er registro de la tabla de usuarios
+
+Metodo PUT en Postman apuntando al link http://localhost:3001/usuarios/1 para actualizar datos del 1er registro de la tabla de usuarios
+
+Metodo DELETE en Postman apuntando al link http://localhost:3001/usuarios/1 para borrar el 1er registro de la tabla de usuarios
+
+Metodo GET en Postman apuntando al link http://localhost:3001/estado para visualizar el estado de la API REST

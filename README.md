@@ -80,3 +80,5 @@ Instalar Postman y luego probar las siguientes rutas de la aplicacion:
     PUT http://localhost:3001/usuarios/1 para actualizar datos del 1er registro de la tabla de usuarios
     DELETE http://localhost:3001/usuarios/1 para borrar el 1er registro de la tabla de usuarios
     GET http://localhost:3001/estado para visualizar el estado de la API REST
+
+git init

@@ -98,9 +98,15 @@ Este servidor se ejecuta en http://localhost:3001
 Instalar Postman en su computadora y usando los diferentes metodos (POST, GET, PUT y DELETE ) en Postman probar las siguientes rutas de la aplicacion:
 
 POST http://localhost:3001/usuarios para registrar un nuevo usuario a la tabla de usuarios
+
 GET http://localhost:3001//usuarios para visualizar todos los usuarios existentes en la tabla usuarios
+
 GET http://localhost:3001/usuarios/promedio-edad para visualizar el promedio de edad de los usuarios
+
 GET http://localhost:3001/usuarios/1 para visualizar solo el 1er registro de la tabla de usuarios
+
 PUT http://localhost:3001/usuarios/1 para actualizar datos del 1er registro de la tabla de usuarios
+
 DELETE http://localhost:3001/usuarios/1 para borrar el 1er registro de la tabla de usuarios
+
 GET http://localhost:3001/estado para visualizar el estado de la API REST
